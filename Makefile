@@ -1,4 +1,4 @@
-.PHONY: clean clean-test clean-pyc clean-build docs help test test-cov
+.PHONY: clean clean-test clean-pyc clean-build help test test-cov
 .DEFAULT_GOAL := help
 
 clean: ## remove all build, test, coverage and Python artifacts
@@ -33,7 +33,7 @@ clean-test: ## remove test and coverage artifacts
 test: ## run tests (and coverage if configured in setup.cfg) with the default Python
 	@echo -----------------------------------------------------------------
 	@echo RUNNING TESTS...
-	pytest --cov={{cookiecutter.project_slug}}
+	pytest tests/
 	@echo ✅ Tests have passed! Nice work!
 	@echo -----------------------------------------------------------------
 
@@ -64,12 +64,6 @@ install: clean ## install the package to the active Python's site-packages via p
 install-e: clean ## install via pip in editable mode this see https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs
 	pip install -e .
 
-test-cov: test ## run tests locally and output coverage file
-	coverage report > COVERAGE.txt
-
-commit-cov:
-	git add COVERAGE.txt --force
-
 install-all: ## install extra requirements for tests etc
 	pip install -r requirements/all.txt
 
@@ -85,16 +79,3 @@ install-dev-local: ## install all the stuff you need to develop locally
 	pip install -e .
 	pip install -r requirements/all.txt
 	pre-commit install
-
-publish: dist ## publish the package to PyPI
-	twine upload dist/*
-
-run-infra:
-	docker-compose -f docker/dev/docker-compose.yaml up --remove-orphans -d
-
-stop-infra:
-	docker-compose -f docker/dev/docker-compose.yaml down
-
-docs: ## generate Sphinx HTML documentation, including API docs
-	$(MAKE) -C docs clean
-	$(MAKE) -C docs html
