@@ -34,7 +34,7 @@ def expected_folders() -> List:
         'docs',
         'README.md',
         'setup.py',
-        'MANIFEST.ini',
+        'MANIFEST.in',
         'setup.cfg',
         'src',
     ]
