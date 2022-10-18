@@ -1,5 +1,9 @@
 ## Cookiecutter
 
+> 1️⃣ version: 0.1.0
+
+ > ✍️ author: Mitchell Lisle
+
 First, you need cookiecutter
 
 ```shell
