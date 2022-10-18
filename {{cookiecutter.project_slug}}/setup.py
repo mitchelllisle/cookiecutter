@@ -23,7 +23,7 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     test_suite='tests',
-    license="{{cookiecutter.licence}}",
+    license='{{cookiecutter.license}}',
     tests_require=test_requirements,
     url='https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}',
     version='{{cookiecutter.version}}',
