@@ -1,7 +1,7 @@
 site_name: {{ cookiecutter.project_name }}
 repo_url: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
-repo_name: mitchelllisle/yessql
-site_author: Mitchell Lisle
+repo_name: mitchelllisle/{{ cookiecutter.project_slug }}
+site_author: {{ cookiecutter.full_name }}
 edit_uri: ""
 
 theme:
