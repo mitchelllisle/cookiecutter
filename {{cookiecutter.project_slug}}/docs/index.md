@@ -1,6 +1,6 @@
-# Welcome to {{cookiecutter.full_name}}
+# Welcome to {{cookiecutter.project_name}}
 
-## What is {{cookiecutter.full_name}}?
+## What is {{cookiecutter.project_name}}?
 -
 
 ## Usage

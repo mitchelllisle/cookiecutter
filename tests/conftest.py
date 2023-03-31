@@ -25,16 +25,12 @@ def expected_folders() -> List:
     folders = [
         'docker',
         'pytest.ini',
-        'requirements.txt',
         'mkdocs.yaml',
         'Makefile',
         'tests',
-        '__init__.py',
-        'requirements',
         'docs',
         'README.md',
-        'setup.py',
-        'MANIFEST.in',
+        'pyproject.toml',
         'setup.cfg',
         'src',
     ]

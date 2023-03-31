@@ -4,11 +4,19 @@ on: [push]
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, '3.10', 3.11]
     steps:
-    - uses: actions/checkout@v2
-    - name: Stop MySQL
-      run: |
-        sudo /etc/init.d/mysql stop
-    - name: Run containers
-      run: docker-compose -f docker/ci/docker-compose.yaml up --abort-on-container-exit
+      - uses: actions/checkout@v2
+      - name: Set up Python {% raw %}${{ matrix.python-version }}{% endraw %}
+        uses: actions/setup-python@v1
+        with:
+          python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
+      - name: Install Poetry
+        run: pip install poetry
+      - name: Install Tests
+        run: make install-all
+      - name: Run Tests
+        run: make test
