@@ -1,6 +1,6 @@
 ## Cookiecutter
 
-> 1️⃣ version: 1.1.0
+> 1️⃣ version: 1.1.1
 
  > ✍️ author: Mitchell Lisle
 
