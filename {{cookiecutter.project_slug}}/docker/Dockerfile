@@ -2,8 +2,8 @@ FROM jupyter/scipy-notebook as serve
 
 USER root
 RUN mkdir -p /source
-RUN useradd -ms /bin/bash -g root rondo-user
-RUN chown rondo-user /source
+RUN useradd -ms /bin/bash -g root {{cookiecutter.project_slug}}-user
+RUN chown {{cookiecutter.project_slug}}-user /source
 
 COPY . /source
 
